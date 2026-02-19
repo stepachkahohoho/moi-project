@@ -1,0 +1,60 @@
+<div class="main-container">
+  <h1 class="page-title">Поиск картинок</h1>
+
+  <div class="filters">
+    <div class="search-box">
+      <input
+        type="text"
+        placeholder="Поиск по названию"
+        [(ngModel)]="searchQuery"
+        (ngModelChange)="filter()"
+        class="search-input"
+      >
+    </div>
+
+    <div class="tag-filter">
+      <button class="tag-button" (click)="showTagDropdown = !showTagDropdown">
+        {{ selectedTag || 'Фильтр по тегам' }}
+        <span class="arrow">▼</span>
+      </button>
+
+      <div class="tag-dropdown" *ngIf="showTagDropdown">
+        <div class="tag-option" (click)="clearTagFilter()">Все теги</div>
+        <div class="tag-option" *ngFor="let tag of tags" (click)="selectTag(tag)">
+          {{ tag }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cats-grid">
+    <div class="cat-card" *ngFor="let cat of filteredCats">
+      <div class="cat-image-container">
+        <img
+          [src]="cat.image"
+          [alt]="cat.name"
+          class="cat-image"
+          (click)="setAvatar(cat)"
+          title="Сделать аватаром"
+        >
+      </div>
+
+      <div class="cat-info">
+        <h3 class="cat-name">{{ cat.name }}</h3>
+
+        <div class="cat-tags">
+          <span class="tag" *ngFor="let tag of cat.tags">{{ tag }}</span>
+        </div>
+
+        <button
+          class="favorite-btn"
+          [class.active]="isFavorite(cat)"
+          (click)="toggleFavorite(cat, $event)"
+        >
+          <span class="star">{{ isFavorite(cat) ? '★' : '☆' }}</span>
+          В Избранное
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

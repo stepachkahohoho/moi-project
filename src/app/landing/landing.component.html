@@ -1,0 +1,27 @@
+<div class="landing">
+  <div class="card">
+    <h1 class="title">Привет, друг!</h1>
+    <p class="subtitle">Введи своё имя, чтобы начать путешествие в мир котиков</p>
+
+    <div class="form-group">
+      <input
+        type="text"
+        placeholder="Твоё имя"
+        [(ngModel)]="username"
+        (keyup.enter)="continue()"
+        class="input"
+      >
+      <button
+        (click)="continue()"
+        class="btn"
+        [class.active]="username.trim().length > 0"
+      >
+        Продолжить
+      </button>
+    </div>
+
+    <div class="footer">
+      <span class="copyright">© 2026 Kotovitrina</span>
+    </div>
+  </div>
+</div>

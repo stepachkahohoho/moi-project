@@ -1,0 +1,28 @@
+<div class="favorites-container">
+  <h1 class="page-title">Избранное</h1>
+
+  <div *ngIf="favorites.length === 0" class="empty-state">
+    <p class="empty-text">У вас пока нет избранных картинок</p>
+  </div>
+
+  <div class="cats-grid" *ngIf="favorites.length > 0">
+    <div class="cat-card" *ngFor="let cat of favorites" (click)="removeFromFavorites(cat)">
+      <div class="cat-image-container">
+        <img [src]="cat.image" [alt]="cat.name" class="cat-image">
+      </div>
+
+      <div class="cat-info">
+        <h3 class="cat-name">{{ cat.name }}</h3>
+
+        <div class="cat-tags">
+          <span class="tag" *ngFor="let tag of cat.tags">{{ tag }}</span>
+        </div>
+
+        <button class="favorite-btn active">
+          <span class="star">★</span>
+          В Избранном
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

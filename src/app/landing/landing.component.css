@@ -1,0 +1,96 @@
+.landing {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0B1D2E 0%, #1A2F3F 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 24px;
+  padding: 48px 40px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0B1D2E;
+  margin: 0 0 12px 0;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #4A5C6E;
+  margin-bottom: 32px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.input {
+  padding: 16px 20px;
+  border: 2px solid #E0E5E9;
+  border-radius: 40px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input:focus {
+  border-color: #FACF5A;
+  box-shadow: 0 0 0 3px rgba(250, 207, 90, 0.2);
+}
+
+.btn {
+  padding: 16px 20px;
+  background: #0B1D2E;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  opacity: 0.7;
+}
+
+.btn.active {
+  opacity: 1;
+}
+
+.btn:hover:not(:disabled) {
+  background: #1A2F3F;
+  transform: scale(1.02);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.footer {
+  color: #8A9AAD;
+  font-size: 14px;
+}
+
+.copyright {
+  position: relative;
+  padding-left: 24px;
+}
+
+.copyright::before {
+  content: "©";
+  position: absolute;
+  left: 0;
+}

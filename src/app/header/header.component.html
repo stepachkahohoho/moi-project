@@ -1,0 +1,12 @@
+<header class="header">
+  <nav class="nav">
+    <div class="nav-left">
+      <a routerLink="/main" routerLinkActive="active">Главная</a>
+      <a routerLink="/favorites" routerLinkActive="active">Избранное</a>
+    </div>
+    <div class="nav-right" routerLink="/profile">
+      <span class="username">{{ auth.username }}</span>
+      <img [src]="auth.avatar" alt="Аватар" class="avatar">
+    </div>
+  </nav>
+</header>

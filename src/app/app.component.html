@@ -1,0 +1,51 @@
+<div class="profile-container">
+  <h1 class="page-title">Профиль</h1>
+
+  <div class="profile-card">
+    <div class="avatar-section">
+      <div class="avatar-wrapper">
+        <img [src]="avatarPreview" alt="Аватар" class="profile-avatar">
+        <label for="avatar-upload" class="avatar-overlay">
+          <span>Загрузить</span>
+        </label>
+      </div>
+      <input
+        type="file"
+        id="avatar-upload"
+        accept="image/*"
+        (change)="onAvatarSelected($event)"
+        class="hidden-input"
+      >
+    </div>
+
+    <form [formGroup]="profileForm" class="profile-form">
+      <div class="form-group">
+        <label for="username" class="form-label">Никнейм</label>
+        <input
+          type="text"
+          id="username"
+          formControlName="username"
+          class="form-input"
+          placeholder="Введите никнейм"
+        >
+        <div class="error-message" *ngIf="profileForm.get('username')?.invalid && profileForm.get('username')?.touched">
+          Минимум 2 символа
+        </div>
+      </div>
+
+      <div class="actions">
+        <button
+          type="button"
+          class="btn-save"
+          (click)="saveProfile()"
+          [disabled]="profileForm.invalid"
+        >
+          Сохранить
+        </button>
+        <button type="button" class="btn-logout" (click)="logout()">
+          Выход
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
